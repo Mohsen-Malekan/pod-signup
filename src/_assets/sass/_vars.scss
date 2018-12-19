@@ -1,0 +1,67 @@
+$font-size: 14px;
+
+$white-color: #fff;
+$black-color: #000;
+$blue-color: #006cfc;
+$blue-color-1:#8c9eff;
+$grey-color-1: #f5f5f5;
+$grey-color-2: #616161;
+$grey-color-3: #212121;
+$grey-color-4: #eceef1;
+$grey-color-5: #90a4ae;
+$grey-color-6: #d8d8d8;
+$grey-color-7: #e0e0e0;
+$grey-color-8: #fbfbfb;
+$red-color: #e57373;
+
+
+@mixin clearfix {
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+@mixin box-shadow( $horiz : .5em , $vert : .5em , $blur : 0px , $spread : 0px , $color : $black-color ){
+	-webkit-box-shadow: $horiz $vert $blur $spread $color;
+	-moz-box-shadow: $horiz $vert $blur $spread $color;
+	box-shadow: $horiz $vert $blur $spread $color;
+}
+
+@mixin border-radius ( $value: 3px ) {
+	-webkit-border-radius: $value;
+	-moz-border-radius: $value;
+	border-radius: $value;
+}
+
+@mixin xs {
+	@media only screen and (max-width : 320px) { @content; }
+}
+
+@mixin sm {
+	@media only screen and (max-width : 480px) { @content; }
+}
+
+@mixin md {
+	@media only screen and (max-width : 768px) { @content; }
+}
+
+@mixin lg {
+	@media only screen and (max-width : 992px) { @content; }
+}
+
+@mixin llg {
+	@media only screen and (max-width : 1200px) { @content; }
+}

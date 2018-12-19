@@ -1,0 +1,86 @@
+﻿/**
+*
+*	Name:			IRANYekan Font
+*	Version:		1.0
+*	Author:			Moslem Ebrahimi (moslemebrahimi.com)
+*	Created on:		Dec 20, 2016
+*	Updated on:		Dec 20, 2016
+*	Website:		http://fontiran.com
+*	Copyright:		Commercial/Proprietary Software
+--------------------------------------------------------------------------------------
+فونت ایران یکان یک نرم افزار مالکیتی محسوب می شود. جهت آگاهی از قوانین استفاده از این فونت ها لطفا به وب سایت (فونت ایران دات کام) مراجعه نمایید
+--------------------------------------------------------------------------------------
+IRANYekan fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com
+--------------------------------------------------------------------------------------
+This set of fonts are used in this project under the license: (.....)
+--------------------------------------------------------------------------------------
+*
+**/
+@font-face {
+	font-family: iranyekan;
+	font-style: normal;
+	font-weight: bold;
+	src: url('../fonts/fontiran/eot/iranyekanwebbold.eot');
+	src: url('../fonts/fontiran/eot/iranyekanwebbold.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('../fonts/fontiran/woff2/iranyekanwebbold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('../fonts/fontiran/woff/iranyekanwebbold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('../fonts/fontiran/ttf/iranyekanwebbold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: iranyekan;
+	font-style: normal;
+	font-weight: 300;
+	src: url('../fonts/fontiran/eot/iranyekanweblight.eot');
+	src: url('../fonts/fontiran/eot/iranyekanweblight.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('../fonts/fontiran/woff2/iranyekanweblight.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('../fonts/fontiran/woff/iranyekanweblight.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('../fonts/fontiran/ttf/iranyekanweblight.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: iranyekan;
+	font-style: normal;
+	font-weight: normal;
+	src: url('../fonts/fontiran/eot/iranyekanwebregular.eot');
+	src: url('../fonts/fontiran/eot/iranyekanwebregular.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('../fonts/fontiran/woff2/iranyekanwebregular.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('../fonts/fontiran/woff/iranyekanwebregular.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('../fonts/fontiran/ttf/iranyekanwebregular.ttf') format('truetype');
+}
+
+/* Latin fonts (Roboto) */
+
+@font-face {
+	font-family: roboto;
+	font-style: normal;
+	font-weight: bold;
+	src: url('../fonts/fontiran/eot/robotobold.eot');
+	src: url('../fonts/fontiran/eot/robotobold.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('../fonts/fontiran/woff2/robotobold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('../fonts/fontiran/woff/robotobold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('../fonts/fontiran/ttf/robotobold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: roboto;
+	font-style: normal;
+	font-weight: 300;
+	src: url('../fonts/fontiran/eot/robotolight.eot');
+	src: url('../fonts/fontiran/eot/robotolight.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('../fonts/fontiran/woff2/robotolight.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('../fonts/fontiran/woff/robotolight.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('../fonts/fontiran/ttf/robotolight.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: roboto;
+	font-style: normal;
+	font-weight: normal;
+	src: url('../fonts/fontiran/eot/robotoregular.eot');
+	src: url('../fonts/fontiran/eot/robotoregular.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('../fonts/fontiran/woff2/robotoregular.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('../fonts/fontiran/woff/robotoregular.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('../fonts/fontiran/ttf/robotoregular.ttf') format('truetype');
+}
+

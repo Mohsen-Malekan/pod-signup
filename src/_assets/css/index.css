@@ -1,0 +1,579 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+li {
+  list-style: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: inherit;
+  -webkit-box-shadow: none;
+  background-color: transparent !important;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  font-family: iranyekan, Arial, sans-serif;
+}
+
+a,
+a:active {
+  color: #006cfc;
+  text-decoration: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+body {
+  direction: rtl;
+  font-family: iranyekan, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  color: #616161;
+  background: #f5f5f5 url(../images/poly_bg.png) no-repeat top center;
+}
+
+.container {
+  width: 724px;
+  margin: 0 auto;
+  margin-bottom: 110px;
+}
+
+.header {
+  padding: 50px 0 80px;
+  overflow: hidden;
+}
+.header .login-link {
+  float: left;
+  margin-top: 20px;
+}
+.header .logo {
+  float: right;
+  color: #006cfc;
+  overflow: hidden;
+  font-size: 18px;
+}
+.header .logo img {
+  float: right;
+  margin-left: 10px;
+}
+.header .logo .slogan {
+  float: right;
+  padding-top: 15px;
+}
+.header .logo .slogan span {
+  display: block;
+}
+
+.main .main-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #212121;
+  margin-bottom: 20px;
+}
+.main .main-sub-title {
+  color: #616161;
+  line-height: 2.2em;
+  margin-bottom: 30px;
+}
+.main .form-wrap .line {
+  border-top: 1.5px dashed #eceff1;
+  margin: 15px 80px;
+}
+.main .form-wrap .form-box {
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+  padding: 40px;
+  background-color: #fbfbfb;
+  margin-bottom: 20px;
+}
+.main .form-wrap .form-box li {
+  position: relative;
+  padding-bottom: 20px;
+  float: right;
+  width: 100%;
+}
+.main .form-wrap .form-box li li {
+  padding-bottom: 0;
+}
+.main .form-wrap .form-box h2 {
+  font-size: 18px;
+  color: #212121;
+  margin-bottom: 10px;
+}
+.main .form-wrap .form-box h3 {
+  color: #616161;
+  line-height: 2.2em;
+  margin-bottom: 20px;
+}
+.main .form-wrap .form-box .half-col-custom {
+  float: right;
+  width: 50%;
+  margin-bottom: 10px;
+  z-index: 1;
+}
+.main .form-wrap .form-box .half-col-custom input {
+  vertical-align: middle;
+  margin: 0;
+}
+.main .form-wrap .form-box .half-col {
+  float: right;
+  width: 50%;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.main .form-wrap .form-box .half-col:nth-child(2n) {
+  padding-right: 20px;
+}
+.main .form-wrap .form-box .half-col:nth-child(2n) .text-error {
+  right: 20px;
+}
+.main .form-wrap .form-box .half-col ul {
+  margin-top: 10px;
+}
+.main .form-wrap .form-box input[type=text],
+.main .form-wrap .form-box input[type=email],
+.main .form-wrap .form-box select,
+.main .form-wrap .form-box textarea {
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  width: 100%;
+  color: #616161;
+  transition: all 0.3s;
+}
+.main .form-wrap .form-box input[type=text]::placeholder,
+.main .form-wrap .form-box input[type=email]::placeholder,
+.main .form-wrap .form-box select::placeholder,
+.main .form-wrap .form-box textarea::placeholder {
+  color: #c3c3c3;
+}
+.main .form-wrap .form-box input[type=text]:hover, .main .form-wrap .form-box input[type=text]:focus,
+.main .form-wrap .form-box input[type=email]:hover,
+.main .form-wrap .form-box input[type=email]:focus,
+.main .form-wrap .form-box select:hover,
+.main .form-wrap .form-box select:focus,
+.main .form-wrap .form-box textarea:hover,
+.main .form-wrap .form-box textarea:focus {
+  border-color: #8c9eff;
+}
+.main .form-wrap .form-box input[type=text].error,
+.main .form-wrap .form-box input[type=email].error,
+.main .form-wrap .form-box select.error,
+.main .form-wrap .form-box textarea.error {
+  border-color: #e57373;
+}
+.main .form-wrap .form-box input[type=text]::-webkit-input-placeholder, .main .form-wrap .form-box input[type=text]:-ms-input-placeholder, .main .form-wrap .form-box input[type=text]::placeholder,
+.main .form-wrap .form-box input[type=email]::-webkit-input-placeholder,
+.main .form-wrap .form-box input[type=email]:-ms-input-placeholder,
+.main .form-wrap .form-box input[type=email]::placeholder,
+.main .form-wrap .form-box select::-webkit-input-placeholder,
+.main .form-wrap .form-box select:-ms-input-placeholder,
+.main .form-wrap .form-box select::placeholder,
+.main .form-wrap .form-box textarea::-webkit-input-placeholder,
+.main .form-wrap .form-box textarea:-ms-input-placeholder,
+.main .form-wrap .form-box textarea::placeholder {
+  color: #c3c3c3;
+}
+.main .form-wrap .form-box input[type=text] select,
+.main .form-wrap .form-box input[type=email] select,
+.main .form-wrap .form-box select select,
+.main .form-wrap .form-box textarea select {
+  color: #c3c3c3;
+}
+.main .form-wrap .form-box .new-row {
+  border: none;
+}
+.main .form-wrap .form-box .new-row button {
+  background-color: #78909c;
+  border: none;
+  color: #fff;
+  padding: 10px 7px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+.main .form-wrap .form-box .new-row button:hover {
+  background-color: #4a5b64;
+}
+.main .form-wrap .form-box h4 {
+  margin-bottom: 7px;
+}
+.main .form-wrap .form-box label {
+  font-size: 12px;
+  cursor: pointer;
+}
+.main .form-wrap .form-box .back-btn {
+  color: #747474;
+  border: none;
+  background-color: inherit;
+  font-size: 13px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.main .form-wrap .form-box .back-btn:focus, .main .form-wrap .form-box .back-btn:hover {
+  color: #343434;
+}
+.main .form-wrap .form-box .text-error {
+  color: #e57373;
+  font-size: 10px;
+  padding-top: 5px;
+  display: inline-block;
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+}
+.main .form-wrap .form-box input[type=submit],
+.main .form-wrap .form-box input.btn_box {
+  background-color: #006cfc;
+  padding: 15px 20px;
+  outline: none;
+  border: none;
+  color: #fff;
+  margin-top: 80px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.main .form-wrap .form-box input[type=submit]:hover,
+.main .form-wrap .form-box input.btn_box:hover {
+  background-color: #0056c9;
+}
+.main .form-wrap .form-steps {
+  padding: 20px;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+.main .form-wrap .form-steps:before, .main .form-wrap .form-steps:after {
+  content: "";
+  display: table;
+}
+.main .form-wrap .form-steps:after {
+  clear: both;
+}
+.main .form-wrap .form-steps ul {
+  list-style: none;
+}
+.main .form-wrap .form-steps ul li {
+  text-align: center;
+  width: 25%;
+  float: right;
+  color: #90a4ae;
+}
+.main .form-wrap .form-steps ul li:first-child .hex span {
+  right: 10px;
+}
+.main .form-wrap .form-steps ul li:first-child .hex img {
+  padding-top: 3px;
+}
+.main .form-wrap .form-steps ul li.current {
+  color: #006cfc;
+}
+.main .form-wrap .form-steps ul li.current .hex img {
+  padding-top: 0px;
+}
+.main .form-wrap .form-steps ul li.current .hex span {
+  color: #fff;
+  right: 12px;
+}
+.main .form-wrap .form-steps ul li.current .hex path {
+  fill: #006cfc;
+}
+.main .form-wrap .form-steps ul li.current .hex .back {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  width: 31px;
+  z-index: 1;
+}
+.main .form-wrap .form-steps ul li.current .hex .back path {
+  fill: #bbdefb;
+}
+.main .form-wrap .form-steps ul li .hex {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  margin: 0 auto 10px;
+}
+.main .form-wrap .form-steps ul li .hex img {
+  padding-top: 3px;
+}
+.main .form-wrap .form-steps ul li .hex svg {
+  z-index: 10;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+}
+.main .form-wrap .form-steps ul li .hex span {
+  position: absolute;
+  top: 9px;
+  right: 8px;
+  color: #90a4ae;
+  z-index: 10000000000;
+}
+.main .form-wrap .form-steps ul li .hex path {
+  fill: #eceef1;
+}
+.main .form-wrap .form-steps ul li .hex .back {
+  display: none;
+}
+
+.setup-header {
+  width: 100%;
+  border: 1px dashed #e0e0e0;
+  background-color: #fff;
+  margin-bottom: 20px;
+  position: relative;
+  transition: all 0.3s;
+  overflow: hidden;
+  height: 160px;
+  transition: all 0.3s;
+}
+.setup-header input[type=file] {
+  display: none;
+}
+.setup-header img {
+  width: 100%;
+}
+.setup-header label {
+  padding: 70px 20px;
+  display: inline-block;
+  color: #9badb6;
+  cursor: pointer;
+  width: 100%;
+  cursor: pointer;
+}
+.setup-header:hover {
+  border-color: #006cfc;
+}
+.setup-header .select-logo {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  left: 0;
+  top: 0;
+  background-color: #fafafa;
+  border: 1px dashed #e0e0e0;
+  margin: 13px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.setup-header .select-logo label {
+  padding: 50px 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.setup-header .select-logo:hover {
+  border-color: #006cfc;
+}
+
+.upload-document {
+  width: 100%;
+  border-top: 1px solid #e6e6e6;
+  padding: 20px 0;
+}
+.upload-document:first-child {
+  border: none;
+  padding-top: 5px;
+}
+.upload-document input[type=file] {
+  display: none;
+}
+.upload-document li {
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+}
+.upload-document li label {
+  width: 100%;
+  display: inline-block;
+  padding: 11px 10px;
+  color: #9badb6;
+}
+.upload-document li:nth-child(2n-1) label {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+}
+.upload-document li:nth-child(2n) label {
+  background-color: #fff;
+  border: 1px dashed #e0e0e0;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.upload-document li:nth-child(2n) label:hover {
+  border-color: #006cfc;
+}
+
+footer {
+  padding: 30px 120px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+footer > div {
+  border-top: 1px solid #e0e0e0;
+}
+footer .logo {
+  display: inline-block;
+  padding-top: 20px;
+  float: right;
+}
+footer .logo img {
+  width: 30px;
+  vertical-align: middle;
+}
+footer .logo span {
+  color: #757575;
+}
+footer .social_media {
+  float: left;
+  padding-top: 20px;
+}
+footer .social_media img {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.select-logo .tools {
+  right: 5px;
+  left: 5px;
+}
+
+.upload-document .tools {
+  left: 10px;
+  right: auto;
+  bottom: 10px;
+}
+.upload-document .tools button {
+  padding: 3px;
+  box-shadow: none;
+  border: none;
+  background-color: none;
+}
+.upload-document .tools button:hover {
+  background-color: transparent;
+}
+.upload-document .tools button:hover span {
+  filter: brightness(0.1);
+}
+
+.tools {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.tools button {
+  border: none;
+  outline: none;
+  padding: 3px 0px 3px 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin-left: 7px;
+  transition: background-color 0.3s;
+  font-size: 11px;
+  border-radius: 1px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.26);
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+}
+.tools button span {
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  background-size: 11px;
+  padding: 11px;
+}
+.tools button:last-child {
+  margin-left: 0;
+}
+.tools button:hover {
+  background-color: rgba(0, 108, 252, 0.9);
+  color: #fff;
+}
+.tools button:hover span {
+  filter: brightness(1);
+}
+.tools .edit span {
+  background-image: url(../images/edit.svg);
+  filter: brightness(0.1);
+}
+.tools .delete span {
+  background-image: url(../images/delete.svg);
+  filter: brightness(0.1);
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+/*# sourceMappingURL=index.css.map */
