@@ -22,9 +22,9 @@ const TextInput = props => {
         onBlur={handleBlur}
       >
         {children}
-        {options.map(option => (
+        {options.map((option, index) => (
           <option
-            key={option.id}
+            key={option.id || index}
             value={option.code || option.id || option.name}
           >
             {option.name}

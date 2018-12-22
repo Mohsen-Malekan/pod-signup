@@ -10,9 +10,9 @@ import Logo from "./Logo";
 class Documents extends Component {
   submit = values => {
     this.formContainer.setData("tab4", values);
+    //upload files
 
     this.props.submit({
-      //upload files
       ...this.formContainer.state.tab1,
       ...this.formContainer.state.tab2,
       ...this.formContainer.state.tab3,
