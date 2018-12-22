@@ -17,15 +17,11 @@ class App extends Component {
     this.setState({ current: next });
   };
 
-  submit = values => {
-    console.log(values);
-  };
-
   tabs = {
     1: <Basic setTab={this.setTab} />,
     2: <Business setTab={this.setTab} />,
     3: <Contact setTab={this.setTab} />,
-    4: <Documents setTab={this.setTab} submit={this.submit} />
+    4: <Documents setTab={this.setTab} />
   };
 
   render() {
