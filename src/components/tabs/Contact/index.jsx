@@ -59,7 +59,7 @@ class Contact extends Component {
               <input
                 type="button"
                 className="back-btn"
-                value="ویرایش اطلاعات اولیه"
+                value="ویرایش اطلاعات شناسه ای"
                 onClick={this.moveBack}
               />
             </li>

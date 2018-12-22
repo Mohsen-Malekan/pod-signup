@@ -25,13 +25,14 @@ class FormContainer extends Container {
       address: ""
     },
     tab4: {
+      docs: [{ name: "", file: undefined }],
       logoImage: "",
       coverImage: ""
     }
   };
 
   setData = (tab, data) => {
-    this.setState({ [tab]: { ...data } });
+    return this.setState({ [tab]: { ...data } });
   };
 }
 
