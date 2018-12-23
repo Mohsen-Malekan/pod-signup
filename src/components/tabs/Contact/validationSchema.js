@@ -18,7 +18,7 @@ const validationSchema = Yup.object().shape({
       excludeEmptyString: true
     })
     .required("شماره همراه رابط را وارد نمایید"),
-  contactNationalCode: Yup.string()
+  agentNationalCode: Yup.string()
     .nationalId("مقدار وارد شده نامعتبر است")
     .required("کد ملی رابط را وارد نمایید"),
   state: Yup.string().required("استان را انتخاب نمایدد"),

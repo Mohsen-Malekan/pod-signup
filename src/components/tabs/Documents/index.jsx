@@ -5,13 +5,19 @@ import { Subscribe } from "unstated";
 import FormContainer from "../../../FormContainer";
 import Cover from "./Cover";
 import Logo from "./Logo";
-// import Document from "./Document";
-import { FieldArray, Field, getIn } from "formik";
+import ErrorMessage from "./ErrorMessage";
+import { FieldArray } from "formik";
 import { TextInput } from "../../FormInputs";
 import validationSchema from "./validationSchema";
+import Alert from "react-s-alert";
 
 class Documents extends Component {
+  state = {
+    loading: false
+  };
+
   submit = async values => {
+    this.setState({ loading: true });
     await this.formContainer.setData("tab4", values);
 
     // upload images
@@ -24,14 +30,25 @@ class Documents extends Component {
     // upload files
     const docs = values.docs.filter(doc => !!doc.name && !!doc.file);
     const files = await Promise.all(this.uploadDocuments(docs));
-    console.log(files);
+    await this.formContainer.setData("tab4", {
+      ...this.formContainer.state.tab4,
+      meta: files
+    });
 
-    // await this.submit2({
-    //   ...this.formContainer.state.tab1,
-    //   ...this.formContainer.state.tab2,
-    //   ...this.formContainer.state.tab3,
-    //   ...this.formContainer.state.tab4
-    // });
+    // signup
+    const result = await this.formContainer.signup();
+    if (!result.hasError) {
+      this.setState({ loading: false });
+      Alert.info("ثبت نام شما با موفقیت انجام شد");
+      window.location.href = `https://accounts.pod.land:443/oauth2/authorize/?client_id=${
+        process.env.REACT_APP_CLIENT_ID
+      }&response_type=code&scope=profile:write%20phone:write%20email:write%20legal:write%20address:write%20client:write%20&state=eyJvdHQiOm51bGwsImV4cGlyZVRpbWUiOjAsInVyaSI6Imh0dHBzOi8vcGFuZWwucG9kLmxhbmQ6NDQzL0F1dGgvTG9naW5DYWxsYmFjay8iLCJ0b2tlbiI6bnVsbCwibWVzc2FnZUlkIjozMTYxLCJzZXJ2ZXJLZXkiOjAsInBhcmFtZXRlcnMiOm51bGx9&redirect_uri=https://panel.pod.land:443/Auth/LoginCallback/`;
+      await this.formContainer.reset();
+      this.props.setTab(1);
+    } else {
+      this.setState({ loading: false });
+      Alert.error(result.message);
+    }
   };
 
   uploadImage = (file, name) => {
@@ -62,15 +79,8 @@ class Documents extends Component {
 
       return axios
         .post(`/api/upload/file/${doc.name}`, formData)
-        .then(res => ({ [doc.name]: res.data.url }));
+        .then(res => ({ name: doc.name, file: res.data.url }));
     });
-  };
-
-  submit2 = async values => {
-    console.log(values);
-    values.sheba = values.sheba.slice(2);
-    const data = await axios.post("/api/signup", values).then(res => res.data);
-    console.log(data);
   };
 
   moveBack = () => {
@@ -158,10 +168,14 @@ class Documents extends Component {
 
           <ul className="clearfix">
             <li>
+              {this.state.loading && <div className="loader">Loading...</div>}
               <input
                 type="submit"
-                value="تایید و ادامه تکمیل مراحل"
-                className="btn_box"
+                value={this.state.loading ? "درحال ارسال" : "تایید و ثبت نام"}
+                disabled={this.state.loading}
+                className={
+                  this.state.loading ? "btn_box loader_enable" : "btn_box"
+                }
               />
               <input
                 type="button"
@@ -194,18 +208,5 @@ class Documents extends Component {
     );
   }
 }
-
-const ErrorMessage = ({ name }) => (
-  <Field
-    name={name}
-    render={({ form }) => {
-      const error = getIn(form.errors, name);
-      const touch = getIn(form.touched, name);
-      return touch && error ? (
-        <span className="text-error">{error}</span>
-      ) : null;
-    }}
-  />
-);
 
 export default Documents;

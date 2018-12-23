@@ -7,10 +7,14 @@ import Basic from "./tabs/Basic";
 import Business from "./tabs/Business";
 import Contact from "./tabs/Contact";
 import Documents from "./tabs/Documents";
+import Alert from "react-s-alert";
+
+import "react-s-alert/dist/s-alert-default.css";
+import "react-s-alert/dist/s-alert-css-effects/scale.css";
 
 class App extends Component {
   state = {
-    current: 4
+    current: 1
   };
 
   setTab = next => {
@@ -38,6 +42,7 @@ class App extends Component {
           </main>
         </div>
         <Footer />
+        <Alert effect="scale" />
       </Provider>
     );
   }

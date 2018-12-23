@@ -28,7 +28,7 @@ class Contact extends Component {
             <TextInput name="lastName" placeholder="نام خانوادگی" {...props} />
             <TextInput name="cellphone" placeholder="شماره همراه" {...props} />
             <TextInput
-              name="contactNationalCode"
+              name="agentNationalCode"
               placeholder="کد ملی"
               {...props}
             />
