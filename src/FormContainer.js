@@ -3,26 +3,26 @@ import { Container } from "unstated";
 class FormContainer extends Container {
   state = {
     tab1: {
-      businessName: "",
+      businessName: "رستوران فکری",
       guildCode: "",
-      username: "",
-      email: ""
+      username: "fakeUser",
+      email: "test@mail.com"
     },
     tab2: {
       isRegistered: "false",
       registrationNumber: "",
       nationalCode: "",
-      sheba: "",
-      description: ""
+      sheba: "IR890700001000112842809001",
+      description: "توضیحات"
     },
     tab3: {
-      firstName: "",
-      lastName: "",
-      cellphone: "",
-      contactNationalCode: "",
+      firstName: "mohsen",
+      lastName: "malekan",
+      cellphone: "09363261694",
+      contactNationalCode: "0946428611",
       state: "",
       city: "",
-      address: ""
+      address: "آدرس"
     },
     tab4: {
       docs: [{ name: "", file: undefined }],

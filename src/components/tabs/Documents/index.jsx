@@ -11,32 +11,27 @@ import { TextInput } from "../../FormInputs";
 import validationSchema from "./validationSchema";
 
 class Documents extends Component {
-<<<<<<< HEAD
-  submit = values => {
-    this.formContainer.setData("tab4", values);
-    //upload files
-
-    this.props.submit({
-=======
   submit = async values => {
-    // console.log(values);
     await this.formContainer.setData("tab4", values);
 
-    let promises = [];
     // upload images
-    promises.push(this.uploadImage(values.logo, "logo"));
-    promises.push(this.uploadImage(values.cover, "cover"));
+    const promises = [
+      this.uploadImage(values.logo, "logo"),
+      this.uploadImage(values.cover, "cover")
+    ];
+    await Promise.all(promises);
 
     // upload files
+    const docs = values.docs.filter(doc => !!doc.name && !!doc.file);
+    const files = await Promise.all(this.uploadDocuments(docs));
+    console.log(files);
 
-    await Promise.all(promises);
-    await this.submit2({
->>>>>>> 864c08d7cb1f4456998677fbc95f646c7f0af6d4
-      ...this.formContainer.state.tab1,
-      ...this.formContainer.state.tab2,
-      ...this.formContainer.state.tab3,
-      ...this.formContainer.state.tab4
-    });
+    // await this.submit2({
+    //   ...this.formContainer.state.tab1,
+    //   ...this.formContainer.state.tab2,
+    //   ...this.formContainer.state.tab3,
+    //   ...this.formContainer.state.tab4
+    // });
   };
 
   uploadImage = (file, name) => {
@@ -45,7 +40,7 @@ class Documents extends Component {
       formData.append("fileName", name);
       formData.append("image", file);
 
-      return axios.post(`/api/upload/${name}`, formData).then(res =>
+      return axios.post(`/api/upload/image/${name}`, formData).then(res =>
         this.formContainer.setData("tab4", {
           ...this.formContainer.state.tab4,
           [`${name}Image`]: res.data.url
@@ -57,6 +52,18 @@ class Documents extends Component {
         [`${name}Image`]: ""
       });
     }
+  };
+
+  uploadDocuments = documents => {
+    return documents.map(doc => {
+      const formData = new FormData();
+      formData.append("fileName", doc.name);
+      formData.append("file", doc.file);
+
+      return axios
+        .post(`/api/upload/file/${doc.name}`, formData)
+        .then(res => ({ [doc.name]: res.data.url }));
+    });
   };
 
   submit2 = async values => {
@@ -102,8 +109,21 @@ class Documents extends Component {
                           <ErrorMessage name={`docs.${index}.name`} />
                           <li className="half-col">
                             <label>
-                              فایل سند را انتخاب کنید.
-                              <input type="file" name={doc.name} />
+                              {values.docs[index].file
+                                ? values.docs[index].file.name
+                                : "فایل سند را انتخاب کنید."}
+                              <input
+                                type="file"
+                                name={`docs.${index}.file`}
+                                disabled={!!values.docs[index].file}
+                                onChange={e =>
+                                  setFieldValue(
+                                    `docs.${index}.file`,
+                                    e.currentTarget.files[0]
+                                  )
+                                }
+                              />
+                              <ErrorMessage name={`docs.${index}.file`} />
                             </label>
                             <div className="tools">
                               <button
@@ -119,7 +139,15 @@ class Documents extends Component {
                       </li>
                     ))}
                   <li className="new-row">
-                    <button type="button" onClick={() => arrayHelpers.push("")}>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        arrayHelpers.push({
+                          name: "",
+                          file: undefined
+                        })
+                      }
+                    >
                       ردیف جدید
                     </button>
                   </li>

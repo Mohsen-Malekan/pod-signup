@@ -11,6 +11,7 @@ const Logo = props => {
           className="logo-input"
           id="select-logo"
           name="logo"
+          accept="image/*"
           onChange={e => setFieldValue("logo", e.currentTarget.files[0])}
         />
       )}

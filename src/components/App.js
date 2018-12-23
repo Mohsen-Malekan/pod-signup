@@ -10,7 +10,7 @@ import Documents from "./tabs/Documents";
 
 class App extends Component {
   state = {
-    current: 1
+    current: 4
   };
 
   setTab = next => {

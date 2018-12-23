@@ -11,6 +11,7 @@ const Cover = props => {
           className="banner-input"
           id="select-banner"
           name="cover"
+          accept="image/*"
           onChange={e => setFieldValue("cover", e.currentTarget.files[0])}
         />
       )}
