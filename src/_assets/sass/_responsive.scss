@@ -1,0 +1,89 @@
+@include md {
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .main {
+        .form-wrap {
+            .form-box {
+                h2 {
+                    margin-bottom: 20px;
+                }
+                .setup-header {
+                    text-align: center;
+                    label {
+                        display: block;
+                        padding: 30px 0 0;
+                        font-size: 11px;
+                    }
+                    .select-logo {
+                        position: static;
+                        width: 80%;
+                        margin: 20px auto 0;
+                        height: 80px;
+                    }
+                }
+                .half-col:nth-child(n),
+                .half-col-custom {
+                    width: 100%;
+                    float: none;
+                    margin: 0 0 15px;
+                    padding-right: 0;
+                }
+                .back-btn {
+                    margin: 20px 0 0 0;
+                    padding: 15px 20px;
+                    border: 1px solid $grey-color-4;
+                    font-size: 11px;
+                    display: block;
+                }
+                input[type="submit"],
+                input.btn_box {
+                    margin: 0;
+                    display: block;
+                }
+                input[type="text"],
+                input[type="email"],
+                select,
+                textarea {
+                    width: 100%;
+                }
+            }
+            .form-steps {
+                li {
+                    & > span{
+                        display: none;
+                    }
+                }
+                .line {
+                    display: none;
+                }
+            }
+        }
+    }
+    footer {
+        position: static;
+        width: 90%;
+        padding-right: 0;
+        padding-left: 0;
+        margin: 0 auto;
+        .logo,
+        .social_media {
+            float: none;
+        }
+    }
+}
+
+@include sm {
+    .header {
+        .logo {
+            margin: 0 0 20px;
+            display: inline-block;
+        }
+        .logo,
+        .login-link {
+            float: none;
+            clear: right;
+        }
+    }
+}

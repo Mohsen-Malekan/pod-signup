@@ -24,9 +24,9 @@ class Contact extends Component {
         <Form>
           <h4>اطلاعات شخصی</h4>
           <ul className="clearfix">
-            <TextInput name="firstName" placeholder="نام" {...props} />
-            <TextInput name="lastName" placeholder="نام خانوادگی" {...props} />
-            <TextInput name="cellphone" placeholder="شماره همراه" {...props} />
+            <TextInput name="agentFirstName" placeholder="نام" {...props} />
+            <TextInput name="agentLastName" placeholder="نام خانوادگی" {...props} />
+            <TextInput name="agentCellphoneNumber" placeholder="شماره همراه" {...props} />
             <TextInput
               name="agentNationalCode"
               placeholder="کد ملی"

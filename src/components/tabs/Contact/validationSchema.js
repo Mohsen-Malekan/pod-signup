@@ -10,9 +10,9 @@ Yup.addMethod(Yup.string, "nationalId", function(errorMessage) {
 });
 
 const validationSchema = Yup.object().shape({
-  firstName: Yup.string().required("نام رابط را وارد نمایید"),
-  lastName: Yup.string().required("نام خانوادگی رابط را وارد نمایید"),
-  cellphone: Yup.string()
+  agentFirstName: Yup.string().required("نام رابط را وارد نمایید"),
+  agentLastName: Yup.string().required("نام خانوادگی رابط را وارد نمایید"),
+  agentCellphoneNumber: Yup.string()
     .matches(/^(\+?98[-\s]?|0)9[0-39]\d[-\s]?\d{3}[-\s]?\d{4}$/, {
       message: "شماره همراه وارد شده نامعتبر است",
       excludeEmptyString: true

@@ -138,6 +138,7 @@ body {
       input[type="email"],
       select,
       textarea {
+        -webkit-appearance: none;
         border: 1px solid $grey-color-7;
         padding: 10px;
         width: 100%;
@@ -494,3 +495,5 @@ footer {
 .clearfix {
   @include clearfix;
 }
+
+@import "responsive";

@@ -11,6 +11,11 @@ import { TextInput } from "../../FormInputs";
 import validationSchema from "./validationSchema";
 import Alert from "react-s-alert";
 
+const UPLOAD_IMAGES = "UPLOAD IMAGES";
+const UPLOAD_FILES = "UPLOAD FILES";
+const SIGNUP = "SIGNUP";
+const TOTAL = "TOTAL";
+
 class Documents extends Component {
   state = {
     loading: false
@@ -20,29 +25,47 @@ class Documents extends Component {
     this.setState({ loading: true });
     await this.formContainer.setData("tab4", values);
 
+    console.time(TOTAL);
+    console.time(UPLOAD_IMAGES);
     // upload images
     const promises = [
       this.uploadImage(values.logo, "logo"),
       this.uploadImage(values.cover, "cover")
     ];
     await Promise.all(promises);
+    console.timeEnd(UPLOAD_IMAGES);
 
     // upload files
     const docs = values.docs.filter(doc => !!doc.name && !!doc.file);
+    console.time(UPLOAD_FILES);
     const files = await Promise.all(this.uploadDocuments(docs));
+    console.timeEnd(UPLOAD_FILES);
     await this.formContainer.setData("tab4", {
       ...this.formContainer.state.tab4,
       meta: files
     });
 
     // signup
+    console.time(SIGNUP);
     const result = await this.formContainer.signup();
+    console.timeEnd(SIGNUP);
+    console.timeEnd(TOTAL);
     if (!result.hasError) {
       this.setState({ loading: false });
       Alert.info("ثبت نام شما با موفقیت انجام شد");
-      window.location.href = `https://accounts.pod.land:443/oauth2/authorize/?client_id=${
-        process.env.REACT_APP_CLIENT_ID
-      }&response_type=code&scope=profile:write%20phone:write%20email:write%20legal:write%20address:write%20client:write%20&state=eyJvdHQiOm51bGwsImV4cGlyZVRpbWUiOjAsInVyaSI6Imh0dHBzOi8vcGFuZWwucG9kLmxhbmQ6NDQzL0F1dGgvTG9naW5DYWxsYmFjay8iLCJ0b2tlbiI6bnVsbCwibWVzc2FnZUlkIjozMTYxLCJzZXJ2ZXJLZXkiOjAsInBhcmFtZXRlcnMiOm51bGx9&redirect_uri=https://panel.pod.land:443/Auth/LoginCallback/`;
+      console.log(result);
+      // window.location.href = `https://accounts.pod.land/verify/index.html?v=test.m@mail.com&timer=300&i=85363&j=2&continue=https%3A%2F%2Faccounts.pod.land%3A443%2Foauth2%2Fauthorize%2F%3Fclient_id%3D9327444a9d4b266a7d6c1c76%26prompt%3Dlogin%26response_type%3Dcode%26scope%3Dactivity%2520profile%3Awrite%2520phone%3Awrite%2520email%3Awrite%2520legal%3Awrite%2520address%3Awrite%2520client%3Awrite%2520%26state%3DeyJvdHQiOm51bGwsImV4cGlyZVRpbWUiOjAsInVyaSI6Imh0dHBzOi8vcGFuZWwucG9kLmxhbmQ6NDQzL0F1dGgvTG9naW5DYWxsYmFjay8iLCJ0b2tlbiI6bnVsbCwibWVzc2FnZUlkIjo1NTkzLCJzZXJ2ZXJLZXkiOjAsInBhcmFtZXRlcnMiOm51bGx9%26redirect_uri%3Dhttps%3A%2F%2Fpanel.pod.land%3A443%2FAuth%2FLoginCallback%2F%26username%3Dtest_mamad`;
+      // const cont = encodeURIComponent(`https://accounts.pod.land/oauth2/authorize/index.html?client_id=${process.env.REACT_APP_CLIENT_ID}&prompt=login&response_type=code&scope=activity%20profile:write%20phone:write%20email:write%20legal:write%20address:write%20client:write%20&redirect_uri=https://panel.pod.land:443/Auth/LoginCallback/&&username=${this.formContainer.state.tab1.username}`);
+      const cont = encodeURIComponent(
+        `https://accounts.pod.land/oauth2/authorize/index.html?client_id=${
+          process.env.REACT_APP_CLIENT_ID
+        }&response_type=code&scope=activity%20profile:write%20phone:write%20email:write%20legal:write%20address:write%20client:write%20&state=eyJvdHQiOm51bGwsImV4cGlyZVRpbWUiOjAsInVyaSI6Imh0dHBzOi8vcGFuZWwucG9kLmxhbmQ6NDQzL0F1dGgvTG9naW5DYWxsYmFjay8iLCJ0b2tlbiI6bnVsbCwibWVzc2FnZUlkIjo0NjIwLCJzZXJ2ZXJLZXkiOjAsInBhcmFtZXRlcnMiOm51bGx9&redirect_uri=https://panel.pod.land:443/Auth/LoginCallback/`
+      );
+      window.location.href = `https://accounts.pod.land/verify/index.html?v=${
+        result.result.email
+      }&timer=300&i=${result.result.userId}&j=2&continue=${cont}&username=${
+        this.formContainer.state.tab1.username
+      }`;
       await this.formContainer.reset();
       this.props.setTab(1);
     } else {
